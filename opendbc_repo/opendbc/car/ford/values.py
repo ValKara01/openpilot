@@ -1,9 +1,9 @@
-from selfdrive.car import dbc_dict
+from opendbc.car import dbc_dict
 from collections import namedtuple
 from cereal import car
 from typing import Dict, List, Union
-from selfdrive.car.docs_definitions import CarInfo
-from selfdrive.car.fw_query_definitions import FwQueryConfig, Request, StdQueries
+from opendbc.car.docs_definitions import CarInfo
+from opendbc.car.fw_query_definitions import FwQueryConfig, Request, StdQueries
 Ecu = car.CarParams.Ecu
 
 AngleRateLimit = namedtuple('AngleRateLimit', ['speed_points', 'max_angle_diff_points'])
