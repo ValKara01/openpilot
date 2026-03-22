@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-from cereal import car
+from opendbc.car.structs import CarParams
 from opendbc.car.common.conversions import Conversions as CV
 from opendbc.car.ford.values import CAR
 from opendbc.car import STD_CARGO_KG, scale_rot_inertia, gen_empty_fingerprint, get_safety_config
