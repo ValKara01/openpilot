@@ -1,5 +1,5 @@
 from opendbc.car.common.conversions import Conversions as CV
-from cereal import car
+from opendbc.car.structs import CarParams
 
 GearShifter = car.CarState.GearShifter
 
