@@ -1,13 +1,9 @@
 from opendbc.can import CANPacker
+import numpy as np
 from opendbc.car.common.conversions import Conversions as CV
 from opendbc.car.ford.values import CarControllerParams
 from opendbc.car.ford.fordcan import spam_cancel_button, ParkAid_Data, EngVehicleSpThrottle2, BrakeSysFeatures
 
-def clip(x, lo, hi):
-  return max(lo, min(hi, x))
-
-def interp(x, xp, fp):
-  N = len(xp)
 
 class CarController():
   def __init__(self, dbc_name, CP, VM):
@@ -35,8 +31,8 @@ class CarController():
           self.steer_delay += 1
         else:
           self.steer_enabled = True
-          steer = interp(actuators.steer, [-1, 1], [-20, 20])
-          steer = clip(steer, -10, 10)
+          steer = np.interp(actuators.steer, [-1, 1], [-20, 20])
+          steer = np.clip(steer, -10, 10)
           apply_steer = CS.out.steeringAngleDeg + steer
           print(actuators.steer, CS.out.steeringAngleDeg - apply_steer)
       else:
