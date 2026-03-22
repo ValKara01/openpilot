@@ -1,6 +1,6 @@
 from opendbc.car import dbc_dict
 from collections import namedtuple
-from cereal import car
+from opendbc.car.structs import CarParams
 from typing import Dict, List, Union
 from opendbc.car.docs_definitions import CarInfo
 from opendbc.car.fw_query_definitions import FwQueryConfig, Request, StdQueries
