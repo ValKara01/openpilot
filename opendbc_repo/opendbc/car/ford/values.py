@@ -13,6 +13,7 @@ Ecu = CarParams.Ecu
 
 
 class CarControllerParams:
+  APA_STEP = 2          # 50hz
   STEER_STEP = 5        # LateralMotionControl, 20Hz
   LKA_STEP = 3          # Lane_Assist_Data1, 33Hz
   ACC_CONTROL_STEP = 2  # ACCDATA, 50Hz
@@ -101,6 +102,19 @@ class FordPlatformConfig(PlatformConfig):
 
 
 @dataclass
+class FordF150PlatformConfig(PlatformConfig):
+  dbc_dict: DbcDict = field(default_factory=lambda: {
+    Bus.pt: 'ford_f150',
+  })
+
+  def init(self):
+    super().init()
+
+    # Don't show in docs
+    self.car_docs = []
+
+
+@dataclass
 class FordCANFDPlatformConfig(FordPlatformConfig):
   dbc_dict: DbcDict = field(default_factory=lambda: {
     Bus.pt: 'ford_lincoln_base_pt',
@@ -151,9 +165,13 @@ class CAR(Platforms):
     [FordCarDocs("Ford Expedition 2022-24", "Co-Pilot360 Assist 2.0", hybrid=False)],
     CarSpecs(mass=2000, wheelbase=3.69, steerRatio=17.0),
   )
-  FORD_F_150_MK14 = FordCANFDPlatformConfig(
-    [FordCarDocs("Ford F-150 2021-23", "Co-Pilot360 Assist 2.0", hybrid=True)],
+  FORD_F_150_MK13 = FordF150PlatformConfig(
+    [FordCarDocs("Ford F-150 2015-2020")],
     CarSpecs(mass=2000, wheelbase=3.69, steerRatio=17.0),
+  )
+  FORD_F_150_MK14 = FordCANFDPlatformConfig(
+  [FordCarDocs("Ford F-150 2021-23", "Co-Pilot360 Assist 2.0", hybrid=True)],
+  CarSpecs(mass=2000, wheelbase=3.69, steerRatio=17.0),
   )
   FORD_F_150_LIGHTNING_MK1 = FordF150LightningPlatform(
     [FordCarDocs("Ford F-150 Lightning 2022-23", "Co-Pilot360 Assist 2.0")],
