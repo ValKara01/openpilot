@@ -1,4 +1,4 @@
-from cereal import car
+from opendbc.car.structs import CarParams
 from opendbc.can import CANParser
 from opendbc.car.common.conversions import Conversions as CV
 from opendbc.car.ford.values import DBC
