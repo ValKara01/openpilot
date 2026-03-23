@@ -357,12 +357,6 @@ def fordchecksum(cnt, speed):
     cs = cs + 255
   return cs
 
-def spam_cancel_button(packer):
-  values = {
-    "Cancel": 1
-  }
-  return packer.make_can_msg("Steering_Buttons", 0, values)
-
 def ParkAid_Data(packer, enabled, apply_steer, sappControlState, standstill):
   # sappState 1 = Off, 2 = On | sappControl 0 = No request, 1 = Request
   # No angle request at standstill because it causes sporadic steering wheel drift.
