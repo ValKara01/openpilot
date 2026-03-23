@@ -104,6 +104,16 @@ FW_VERSIONS = {
       b'ML3T-14H102-ABT\x00\x00\x00\x00\x00\x00\x00\x00\x00',
     ],
   },
+  CAR.FORD_F_150_MK13: {
+    (Ecu.engine, 0x7e0, None): [
+      b'GL3A-14C204-JD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
+      b'KL3A-14C204-ND\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
+      b'FL3A-14C204-ABL\x00\x00\x00\x00\x00\x00\x00\x00\x00',
+    ],
+    (Ecu.transmission, 0x7e1, None): [
+      b'KL3A-14C337-DD\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00'
+    ],
+  },
   CAR.FORD_F_150_MK14: {
     (Ecu.eps, 0x730, None): [
       b'ML3V-14D003-BC\x00\x00\x00\x00\x00\x00\x00\x00\x00\x00',
